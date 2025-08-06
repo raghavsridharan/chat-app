@@ -12,7 +12,7 @@ dotenv.config()
 
 const PORT = process.env.PORT
 
-app.use(express.json()) // We can extract json data
+app.use(express.json())
 
 app.use('/api/auth', authRoutes); 
 app.use('/api/message', messageRoutes); 
