@@ -28,8 +28,8 @@ const App = () => {
       <Toaster position="top-center" reverseOrder={false} />
       <Navbar />
       <Routes>
-        <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={authUser ? <HomePage /> : <Navigate to ="/login/"/>} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={!authUser ? <Login /> : <Navigate to = "/"/>} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/profile" element={<Profile />} />
