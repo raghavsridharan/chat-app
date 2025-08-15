@@ -1,16 +1,11 @@
 import { Link } from 'react-router-dom';
+import {useAuthStore} from '../store/useAuthStore';
 
 const Navbar = () => {
-  
-  return (
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/signup">Sign Up</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/settings">Settings</Link>
-      <Link to="/profile">Profile</Link>
-    </nav>
-  );
+
+  const {authUser} = useAuthStore();
+
+  return <div>Navbar</div>;
 };
 
 export default Navbar;
