@@ -22,23 +22,7 @@ export const useAuthStore = create((set) => ({
         set({ isCheckingAuth: false });
     }
     },
-
-<<<<<<< HEAD
-    },
     
-    signUp: async (data) => {
-        set({ isSigningUp: true });
-        try {
-              const res = await axiosInstance.post("/auth/signup", data);
-              set({ authUser: res.data });
-              toast.success("Signed up successfully!");
-        } catch (error) {
-              toast.error("Error signing up: " +(error.response?.data?.message || "An error occurred")
-          );
-        } finally {
-          set({ isSigningUp: false });
-        }
-=======
     signUp: async (data) => {
     set({ isSigningUp: true });
     try {
@@ -53,6 +37,52 @@ export const useAuthStore = create((set) => ({
     } finally {
       set({ isSigningUp: false });
     }
->>>>>>> 68fc96f (fixed create acc bug)
-  },
+
+    },
+
+    logout : async (data) => { 
+        try{
+            await axiosInstance.post("/auth/logout", data);
+            set({ authUser: null });
+            toast.success("Logged out successfully!");
+        } catch (error) {
+            toast.error(
+                "Error logging out: " + (error.response?.data?.message || "An error occurred")
+            );
+        }
+    },
+
+    login: async (data) => {
+
+        try {
+            const res = await axiosInstance.post("/auth/login", data);
+            set({userAuth : res.data });
+            toast.success("Logged in successfully!")}
+        catch (error) {
+            toast.error(
+                "Error logging in: " + (error.response?.data?.message || "An error occurred")
+            );
+        }
+
+    },
+    updateProfile : async (data) => {
+        set({isUpdatingProfile: true });
+        try{
+            const res = await axiosInstance.put("/auth/update-profile", data);
+            set({ authUser: res.data });
+            toast.success("Profile updated successfully!");
+
+        } catch (error) {
+            toast.error(
+                "Error updating profile: " + (error.response?.data?.message || "An error occurred")
+            );
+        }
+        finally {
+            set({ isUpdatingProfile: false });
+        }
+
+    }
+
+
+  
 }));
