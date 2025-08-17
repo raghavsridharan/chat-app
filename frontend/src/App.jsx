@@ -9,10 +9,12 @@ import Profile from './pages/Profile.jsx';
 import {useAuthStore} from "./store/useAuthStore";
 import {Loader} from "lucide-react";
 import { useEffect } from 'react';
+import { useThemeStore } from './store/useThemeStore.js';
  
 
 const App = () => {
   const {authUser, checkAuth, isCheckingAuth} = useAuthStore();
+  const {theme} = useThemeStore();
 
   useEffect(() => {
     checkAuth();
@@ -24,7 +26,7 @@ const App = () => {
     </div>
   } 
   return (
-    <div>
+    <div data-theme = {theme}>
       <Toaster position="top-center" reverseOrder={false} />
       <Navbar />
       <Routes>

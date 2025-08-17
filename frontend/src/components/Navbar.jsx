@@ -39,14 +39,16 @@ const Navbar = () => {
                   <span className="hidden sm:inline">Profile</span>
                 </Link>
 
+                <Link to = {"/login"} className={`btn btn-sm gap-2`}>
                 <button className="flex gap-2 items-center" onClick={logout}>
                   <LogOut className="size-5" />
                   <span className="hidden sm:inline">Logout</span>
                 </button>
+                </Link>
               </>
             )}
           </div>
-        </div>
+        </div>x
       </div>
     </header>
   );
