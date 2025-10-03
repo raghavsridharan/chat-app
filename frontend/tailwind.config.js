@@ -9,7 +9,6 @@ export default {
   plugins: [daisyui],
   daisyui: {
     themes: [
-      "retro",
       "light",
       "dark",
       "cupcake",
@@ -17,6 +16,7 @@ export default {
       "emerald",
       "corporate",
       "synthwave",
+      "retro",
       "cyberpunk",
       "valentine",
       "halloween",
@@ -44,4 +44,3 @@ export default {
     ],
   },
 };
-
